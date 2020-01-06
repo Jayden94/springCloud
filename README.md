@@ -84,7 +84,7 @@ spring:
 ```
 在初始化Bean的时候,Eureka已经给我们默认值了,所以不设置值也可以注册。当然我们自己指定就会调用set方法，给ClientConfigBean设置新的属性值。最后也当然需要在启动类中指定当前服务是client ,使用的注解是 **@EnableEurekaClient** 
 
-- 如果我们想获取注册服务ip,等其他信息,可以使用注解 **@EnableDiscoveryClient**
+- 如果我们想获取注册服务ip,等其他信息,可以在启动类中使用注解 **@EnableDiscoveryClient**
 
 ```
  @Autowired
