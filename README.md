@@ -86,7 +86,7 @@ spring:
 
 在使用Spring Cloud + Eureka服务发现的时候提到了两种注解，一种为 **@EnableDiscoveryClient**,一种为 **@EnableEurekaClient**
 
-如果选用注册中心是Eureka推荐使用**@EnableEurekaClient**,如果是其他注册中心（zk）那么使用 **@EnableDiscoveryClient**
+如果选用注册中心是Eureka推荐使用 **@EnableEurekaClient**,如果是其他注册中心（zk）那么使用 **@EnableDiscoveryClient**
 
 ```
     @Autowired
