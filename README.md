@@ -31,7 +31,7 @@ eureka:
   #server:
       #enable-self-preservation: false   # 关闭自我保护（开发环境操作 ）
   client:
-      registerWithEureka: false  # 自己是注册中心 不注册
+      registerWithEureka: false  # 自己是注册中心 不注册 如果做高可用 registerWithEureka+fetchRegistry需要注释。让server互相注册
       fetchRegistry: false # 自己是注册中心 不获取其他服务
       serviceUrl:
           defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
