@@ -103,6 +103,27 @@ spring:
     }
 ```
 
+### Eurekag高可用
+- 生产上启动至少两台server端，让他们相互注册，建议三台，两台互相注册
+本地启动两台sever，idea配置两个不同端口相互注册。
+![enter description here](./images/1586766779007.png)
+![enter description here](./images/1586766791986.png)
+启动8761端口服务向8762注册，8762向8761注册。
+![enter description here](./images/1586766827930.png)
+
+client就需要配置两个注册server地址，一个挂掉，自动注册到另一台保持服务高可用。
+```javascript
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/,http://localhost:8762/eureka/  # 注册到注册中心
+server:
+  port: 9001
+spring:
+  application:
+    name: order-client
+```
+
 ### 待续...
 
         
