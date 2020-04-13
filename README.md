@@ -102,7 +102,40 @@ spring:
         return "hello ！";
     }
 ```
+### Eureka高可用
+- 生产上启动至少两台server端，让他们相互注册，建议三台.  
+现在我们本地测试一下，两台互相注册本地启动两台sever，idea配置两个不同端口相互注册。  
+vm options:-Dserver.port=8761   
+vm options:-Dserver.port=8762  
+启动8761端口服务向8762注册，8762向8761注册。  
+```javascript
+#server1
+client:
+      #registerWithEureka: false  # 自己是注册中心 不注册
+      #fetchRegistry: false # 自己是注册中心 不在查找
+      serviceUrl:
+          defaultZone: http://localhost:8762/eureka/
+		  
+#server2
+client:
+      #registerWithEureka: false  # 自己是注册中心 不注册
+      #fetchRegistry: false # 自己是注册中心 不在查找
+      serviceUrl:
+          defaultZone: http://localhost:8761/eureka/		  
+```
 
+client就需要配置两个注册server地址，一个挂掉，自动注册到另一台保持服务高可用。
+```javascript
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/,http://localhost:8762/eureka/  # 注册到注册中心
+server:
+  port: 9001
+spring:
+  application:
+    name: order-client
+```
 ### 待续...
 
         
