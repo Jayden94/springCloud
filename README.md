@@ -103,11 +103,11 @@ spring:
     }
 ```
 ### Eureka高可用
-- 生产上启动至少两台server端，让他们相互注册，建议三台.  
-现在我们本地测试一下，两台互相注册本地启动两台sever，idea配置两个不同端口相互注册。  
-vm options:-Dserver.port=8761   
-vm options:-Dserver.port=8762  
-启动8761端口服务向8762注册，8762向8761注册。  
+- 生产上启动至少两台server端，让他们相互注册，建议三台，两台互相注册
+本地启动两台sever，idea配置两个不同端口相互注册。
+vm options:-Dserver.port=8761
+vm options:-Dserver.port=8762
+启动8761端口服务向8762注册，8762向8761注册。
 ```javascript
 #server1
 client:
