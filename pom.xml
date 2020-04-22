@@ -48,12 +48,18 @@
     </plugins>
   </build>
 
-  <dependencies>
-    <!--dependency>
-      <groupId>com.java.cloud</groupId>
-      <artifactId>[the artifact id of the block to be mounted]</artifactId>
-      <version>1.0-SNAPSHOT</version>
-    </dependency-->
-  </dependencies>
+  <!--需要在外层应用jar包 然后在多应用里添加依赖 -->
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>com.cloud</groupId>
+        <artifactId>product-client</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+      </dependency>
+    </dependencies>
+
+  </dependencyManagement>
+
+
 
 </project>

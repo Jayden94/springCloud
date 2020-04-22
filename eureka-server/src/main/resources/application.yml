@@ -6,8 +6,8 @@ eureka:
   server:
       enable-self-preservation: false   # 关闭自我保护（开发环境操作 ）
   client:
-      #registerWithEureka: false  # 自己是注册中心 不注册
-      #fetchRegistry: false # 自己是注册中心 不在查找
+      registerWithEureka: false  # 自己是注册中心 不注册
+      fetchRegistry: false # 自己是注册中心 不在查找
       serviceUrl:
           defaultZone: http://localhost:8761/eureka/
 spring:

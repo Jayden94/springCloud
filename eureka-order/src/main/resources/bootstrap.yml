@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: order
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: CONFIG #从config读取配置
+      profile: dev # 读取配置的profiles
+    ####  消息分组使用  避免服务集群后重复消费消息
+    stream:
+      binders:
+          myMsg:
+            group: order
+            ### 序列化对象
+            content-type: application/json
+## 需要将注册配置配置在项目中，防止找不到注册中心，直接去找config失败
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+feign:
+  hystrix:
+    enabled: true
+
+

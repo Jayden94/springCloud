@@ -12,7 +12,8 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="server" target="1.8" />
+      <module name="client" target="1.8" />
+      <module name="eureka-product" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

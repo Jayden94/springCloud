@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: api-geteway
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+zuul:
+  routes:
+    product: /product/**
+  sensitive-headers:
+####  对外暴露所有的端口
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+
